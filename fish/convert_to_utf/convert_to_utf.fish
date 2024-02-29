@@ -10,7 +10,7 @@
 #
 
 
-argparse 'L/language=' 'h/help' 'b/backup' 'list_languages' -- $argv
+argparse 'L/language=' 'h/help' 'no_backup' 'list_languages' -- $argv
 
 if [ $_flag_list_languages ]
   command enca --list languages
@@ -28,7 +28,7 @@ if [ $_flag_h ]; or [ -z $argv ]
   echo "                         recognized as russian"
   echo "     --list_languages    lists all available languages"
   echo
-  echo " -b, --backup            creates backup file (filename.bak) in the working directory"
+  echo "     --no_backup         prevents creating of backup file (FILE.bak)"
   echo " -h, --help              see this help"
   exit 0
 end
@@ -46,8 +46,8 @@ if [ ! -f $name ]
   exit 1
 end
 
-# if backup flag is set then do a backup
-if [ $_flag_backup ]
+# if no-backup flag is not set then do a backup
+if [ ! $_flag_no_backup ]
   cp $name $name.bak
 end
 
@@ -63,8 +63,9 @@ end
 
 
 # if iconv returned successfuly
-if [ -n $(iconv -f $encoding -t UTF-8 -o $name $name) ]
-  echo Successfuly converted encoding of file \'$name\' from $encoding to UTF-8 
+if iconv -f $encoding -t UTF-8 -o $name $name
+  echo Successfuly converted file \'$name\' from $encoding to UTF-8 
+  exit 0
 else
-  echo Encoding $encoding is not supported by iconv
+  exit 1
 end
