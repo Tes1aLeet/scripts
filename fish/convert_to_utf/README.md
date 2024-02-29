@@ -16,6 +16,6 @@ Available options:
                          will be recognized as russian 
 --list_languages:        lists all available languages 
 
--b, --backup:            creates backup file (filename.bak) in the working directory
+    --no-backup:         prevents creating of backup file (FILE.bak)
 -h, --help:              see this help
 </pre>
