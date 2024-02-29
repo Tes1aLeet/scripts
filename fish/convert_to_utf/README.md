@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-enca
+[enca](https://cihar.com/software/enca/)
 
 ## Usage
 
@@ -11,7 +11,7 @@ Usage: convert_to_utf [OPTION]... [FILE]
 Converts file to utf-8 using enca
 
 Available options: 
--l, --language=LANGUAGE: selects preferable language (english, chinese, etc (russian by default)).
+-l, --language=LANGUAGE: selects preferable language (english, chinese, etc).
                          For example: when language is set to russian any 8 bit encoding
                          will be recognized as russian 
 --list_languages:        lists all available languages 
