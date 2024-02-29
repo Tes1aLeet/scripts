@@ -23,13 +23,13 @@ if [ $_flag_h ]; or [ -z $argv ]
   echo "Converts file to utf-8 using enca"
   echo
   echo "Available options: "
-  echo " -l, --language=LANGUAGE selects preferable language (english, chinese, etc). Russian by default"
-  echo "                         for example: when language is set to russian any 8 bit encoding will be"
-  echo "                         recognized as russian"
-  echo "     --list_languages    lists all available languages"
+  echo " -l, --language [LANGUAGE] selects preferable language (english, chinese, etc). Russian by default"
+  echo "                           for example: when language is set to russian any 8 bit encoding will be"
+  echo "                           recognized as russian"
+  echo "     --list_languages      lists all available languages"
   echo
-  echo "     --no_backup         prevents creating of backup file (FILE.bak)"
-  echo " -h, --help              see this help"
+  echo "     --no_backup           prevents creating of backup file (FILE.bak)"
+  echo " -h, --help                see this help"
   exit 0
 end
 
