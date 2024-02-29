@@ -14,8 +14,8 @@ Available options:
 -l, --language=LANGUAGE: selects preferable language (english, chinese, etc).
                          For example: when language is set to russian any 8 bit encoding
                          will be recognized as russian 
---list_languages:        lists all available languages 
+    --list_languages:        lists all available languages 
 
-    --no-backup:         prevents creating of backup file (FILE.bak)
+    --no_backup:         prevents creating of backup file (FILE.bak)
 -h, --help:              see this help
 </pre>
