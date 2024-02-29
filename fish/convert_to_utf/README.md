@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-[enca](https://cihar.com/software/enca/)
+[enca](https://github.com/nijel/enca)
 
 ## Usage
 
