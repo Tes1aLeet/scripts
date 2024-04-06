@@ -1,4 +1,4 @@
-# fish script that converts any file to utf-8
+# fish script that converts text files to utf-8
 
 ## Dependencies
 
