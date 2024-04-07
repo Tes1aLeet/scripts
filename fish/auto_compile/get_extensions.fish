@@ -11,6 +11,11 @@ set DESIRED_LANG (string upper "$argv")
 set SHARE_PATH ~/.local/share/auto_compile/
 set EXTENSIONS_PATH extensions/
 
+set suggested_langs (source ./suggest_language.fish "$DESIRED_LANG")
+if test (count $suggested_langs) -eq 1
+  set DESIRED_LANG $suggested_langs
+end
+
 if not test -d $SHARE_PATH/extensions
   mkdir $SHARE_PATH/extensions
 end

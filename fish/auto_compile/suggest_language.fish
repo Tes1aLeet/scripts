@@ -18,10 +18,10 @@ set LANG_PATH ~/.local/share/auto_compile/available_languages
 
 # check if some language starts or ends with $DESIRED_LANG
 for line in (cat $LANG_PATH)
-  if test (string match -r --all --entire -- "^$DESIRED_LANG" -- (string upper $line))     
+  if test (string match -r -- "^$DESIRED_LANG.*" -- (string upper $line))
     echo $line
   else
-    if test (string match -r --all --entire -- "$DESIRED_LANG\$" -- (string upper $line))     
+    if test (string match -r -- ".*$DESIRED_LANG\$" -- (string upper $line))
       echo $line
     end
   end

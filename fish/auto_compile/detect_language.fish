@@ -14,12 +14,12 @@ if test $_flag_u
   exit
 end
 
-set DESIRED_LANG "$argv"
+set DESIRED_LANG $argv
 set DESIRED_LANG (string upper "$DESIRED_LANG")
 
 for line in (cat $PROG_LANG_DATA)
 
-  set current_lang (string replace ":" "" (string match -r -- "\S*" -- "$line"))
+  set current_lang (string replace ":" "" (string match -r -- "^\S.*" -- "$line"))
   set current_lang (string upper "$current_lang")
 
   if test $LANG_FOUND
@@ -51,7 +51,7 @@ if not test $LANG_FOUND
     exit 1
   end
 
-  if test (count $possible_lang) -gt 2
+  if test (count $possible_lang) -gt 1
     echo 'Maybe you\'ve meant one of these?'
     for line in $possible_lang
       echo "  $line"
