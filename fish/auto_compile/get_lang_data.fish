@@ -42,7 +42,7 @@ if not test $LANG_FOUND
   set possible_lang (source ./suggest_language.fish $DESIRED_LANG) 
 
   if test (count $possible_lang) -eq 1
-    source ./detect_language.fish $possible_lang
+    source ./get_lang_data.fish $possible_lang
     exit 0
   end
 

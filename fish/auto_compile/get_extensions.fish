@@ -19,12 +19,14 @@ if test (count $suggested_langs) -eq 1
 end
 if test (count $suggested_langs) -eq 0
   echo No matches found!
+  exit 1
 end
 if test (count $suggested_langs) -gt 1
   echo Maybe you\'ve meant one of these\?
   for line in $suggested_langs
     echo "  $line"
   end
+  exit 0
 end
 
 if not test -d $SHARE_PATH/extensions
@@ -38,7 +40,7 @@ if test -f $SHARE_PATH/extensions/$DESIRED_LANG; and not test $_flag_u
   end
 else
   # if extensions for $DESIRED_LANG are not present
-  for line in (source ./detect_language.fish "$DESIRED_LANG")
+  for line in (source ./get_lang_data.fish "$DESIRED_LANG")
     # if in extensions section
     if test $FOUND_EXTENSIONS
       # if another section begins then exit the loop
