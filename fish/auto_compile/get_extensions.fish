@@ -11,9 +11,20 @@ set DESIRED_LANG (string upper "$argv")
 set SHARE_PATH ~/.local/share/auto_compile/
 set EXTENSIONS_PATH extensions/
 
+# if $DESIRED_LANG can be extended to only one valid language then
+# set $DESIRED_LANG to that one valid language
 set suggested_langs (source ./suggest_language.fish "$DESIRED_LANG")
 if test (count $suggested_langs) -eq 1
   set DESIRED_LANG $suggested_langs
+end
+if test (count $suggested_langs) -eq 0
+  echo No matches found!
+end
+if test (count $suggested_langs) -gt 1
+  echo Maybe you\'ve meant one of these\?
+  for line in $suggested_langs
+    echo "  $line"
+  end
 end
 
 if not test -d $SHARE_PATH/extensions
